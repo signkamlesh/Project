@@ -1,0 +1,77 @@
+<template>
+    <div class="bgcolor" style="padding-top:10px">
+    <article class="slds-card" style="padding-top:10px">
+    <div class="slds-card__header slds-grid slds-assistive-text">
+    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+    <div class="slds-media__body">
+    <h2 class="slds-card__header-title">
+    <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="Card Header">
+    <span>Card Header</span>
+    </a>
+    </h2>
+    </div>
+    </header>
+    </div>
+    
+    <div class="slds-card__body slds-card__body_inner slds-align_absolute-center "><h2>Account Details</h2></div>
+    <footer class="slds-card__footer">
+        <template if:true={showData}>
+            <!--<div class="slds-card__body slds-card__body_inner slds-align_absolute-center">Account Details</div>-->
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-float_left">
+            Account Name : {accountName}
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-float_left">
+                <br/>
+                </div>
+            <div class="slds-col slds-size_1-of-1 slds-float_left">
+                Type : {Type}
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-float_left">
+                    <br/>
+                    </div>
+                <div class="slds-col slds-size_1-of-1 slds-float_left">
+                    Phone : {Phone}
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-float_left">
+                        <br/>
+                        </div>
+                    <div class="slds-col slds-size_1-of-1 slds-float_left">
+                 Industry : {Industry}
+                        </div>
+                        <div class="slds-col slds-size_1-of-1 slds-float_left">
+                            <br/>
+                            </div>
+                        <div class="slds-col slds-size_1-of-1 slds-float_left">
+                            Account Id : {accountId}
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-float_left">
+                                <br/>
+                                </div>             
+    
+    <lightning-button class="slds-align_absolute-center" label="Edit" title="Brand action" onclick={handleEdit} ></lightning-button>  
+    </div>
+    
+    </template>
+    <template if:true={editRecord}>
+    <div>
+        <lightning-input type="text" label="Account Name" value={accountName} onchange={getName}></lightning-input>
+        <lightning-input type="text" label="Type" value={Type} onchange={getType}></lightning-input>
+        <lightning-input type="text" label="Phone" value={Phone} onchange={getPhone}></lightning-input>
+        <lightning-input type="text" label="Industry" value={Industry} onchange={getIndustry}></lightning-input>
+        <lightning-input disabled={isDisabled} type="text" label="Account Id" value={accountId}  onchange={getId}></lightning-input>
+       <div class="slds-grid">
+        <lightning-button class="slds-align_absolute-center slds-col slds-p-around_small" variant="brand" label="Submit" title="Brand action" onclick={handleSubmit} ></lightning-button>
+        <lightning-button class="slds-align_absolute-center slds-col slds-p-around_small" label="Cancel" title="Brand action" onclick={handleCancel} ></lightning-button>
+    </div>
+    </div>
+    </template>       
+        <div class="slds-align_absolute-center">
+            <template if:false={noRecordLabel}>
+            <template if:false={showData}>No records selected</template>
+            </template>    
+        </div>            
+    </footer>
+    </article>
+</div>
+    </template>
